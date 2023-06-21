@@ -1,0 +1,71 @@
+.profiles {
+    width: 100%;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls {
+    width: 100%;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+}
+
+.controls > button {
+    background-color: #2B74E3;
+    color: aliceblue;
+
+    font-size: 16px;
+    border: 2px solid rgba(240, 248, 255, 0.6);
+    border-radius: 5px;
+
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
+
+.user-card {
+    background-color: aliceblue;
+    color: #333;
+    border-radius: 8px;
+
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 70%;
+    height: auto;
+    max-width: 800px;
+    max-height: none;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.user-card > img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+h2 {
+    margin: 0;
+}
