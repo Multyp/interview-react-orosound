@@ -14,11 +14,11 @@ interface UserCardProps {
 const UserCard: React.FC<UserCardProps> = ({ user, onDelete }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = () => { // Checks for hover on bin
     setIsHovered(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = () => { // Checks for not(hover) on bin
     setIsHovered(false);
   };
 

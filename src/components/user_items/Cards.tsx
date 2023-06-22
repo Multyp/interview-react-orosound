@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { User } from '../interfaces/User';
+
 import UserCard from './UserCard';
 
 import './Style/cards.css';
@@ -30,7 +31,7 @@ const Cards = () => {
   };
 
   const handleDeleteUser = (deletedUser: User) => {
-    const updatedUsers = users.filter(user => user !== deletedUser);
+    const updatedUsers = users.filter(user => user !== deletedUser); // Filters the cards for deletion logic
     setUsers(updatedUsers);
   };
 
