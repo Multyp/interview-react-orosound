@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { User } from '../interfaces/User';
 
-interface User { // Define the awaited types
-  avatar: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  address: {
-    city: string;
-    state: string;
-  };
-}
+import './Style/UserCard.css';
+
+import Bin from '../../assets/bin.png';
+import BinHover from '../../assets/bin-hover.png';
 
 interface UserCardProps {
   user: User;
+  onDelete: (deletedUser: User) => void;
 }
 
-const UserCard: React.FC<UserCardProps> = ({ user }) => {
+const UserCard: React.FC<UserCardProps> = ({ user, onDelete }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleDelete = () => {
+    onDelete(user); // Pass the user object to the onDelete function
+  };
+
+  const binIconSrc = isHovered ? BinHover : Bin;
+
   return (
     <div className="user-card">
       <img src={user.avatar} alt="User Avatar" /> {/* User avatar */}
@@ -30,6 +42,14 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
           Address: {user.address.city}, {user.address.state} {/* User's city and state */}
         </p>
       </div>
+      <img
+        className="bin-icon"
+        src={binIconSrc}
+        alt="Bin Icon"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleDelete}
+      />
     </div>
   );
 };

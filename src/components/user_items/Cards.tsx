@@ -1,4 +1,5 @@
 import { useState, useEffect, ChangeEvent } from 'react';
+import { User } from '../interfaces/User';
 import UserCard from './UserCard';
 
 import './Style/cards.css';
@@ -28,10 +29,15 @@ const Cards = () => {
     setNumOfCards(Number(event.target.value)); // Update the number of cards based on the input value
   };
 
+  const handleDeleteUser = (deletedUser: User) => {
+    const updatedUsers = users.filter(user => user !== deletedUser);
+    setUsers(updatedUsers);
+  };
+
   // Render user cards based on the users state data
   const renderCards = () => {
     return users.map((user, index) => (
-      <UserCard key={index} user={user} />
+      <UserCard key={index} user={user} onDelete={handleDeleteUser} />
     ));
   };
 
